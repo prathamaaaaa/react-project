@@ -14,12 +14,12 @@ function ProductPage() {
 
   return (
     <div className=" bg-gray-100 relative">
-     
+     <div>
+       </div>
       <section className="bg-green-700 text-white p-10 text-center">
         <h2 className="text-7xl font-bold">Our Products!</h2>
         <p className="mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis, blanditiis.</p>
       </section>
-
       <div className="container mx-auto p-6 grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <div key={product.id} className="bg-white hover:scale-110 transition duration-500  p-4 m-10 shadow rounded-lg">

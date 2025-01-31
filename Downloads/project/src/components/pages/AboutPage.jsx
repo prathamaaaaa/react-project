@@ -91,6 +91,10 @@ useEffect(() => {
   return () => controls4.stop();
 }, []);
 
+const text = "Lorem ipsum dolor".split(" ");
+const text1 = "Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto velit fuga voluptatem? Vitae at laborum debitis architecto saepe deserunt.".split(" ");
+const text2 = "Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto velit fuga v".split(" ");
+
 
   return (
     <>
@@ -98,14 +102,67 @@ useEffect(() => {
     <section>
       <div className='flex justify-center'>
         <div className='grid grid-cols-1 h-full   sm:grid-cols-2 '>
-          <div className='h-full w-auto text-white p-4 sm:py-10 sm:px-[100px] space-y-4 gap-x-10 px-14 bg-[#314026] flex justify-center items-center flex-col'>
-            <h1 className='text-center text-5xl'>Lorem ipsum dolor </h1>
-            <p className='text-xl text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla architecto velit fuga voluptatem? Vitae at laborum debitis architecto saepe deserunt.</p>
-            <p className='text-xl text-center'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum corporis quas voluptates maxime molestias provident esse obcaecati beatae, quod nam iure totam illum, optio perspiciatis quis odit! Laudantium, at autem!</p>
-          </div>
-          <div className='h-full sm:px-[100px] sm:py-10 w-auto flex justify-center items-center bg-[#314026]'>
-              <img src="my.jpg" className='rounded-3xl h-[80%] w-[80%]' alt="" />
-          </div>
+          <div className='h-full w-auto text-white p-4 sm:py-10 sm:px-[100px] space-y-4 gap-x-10 px-14 bg-[#314026] flex justify-center items-center'>
+                      <div className="App space-y-6">
+                              <div className='text-center'>
+                              {text.map((el, i) => (
+                                <motion.span
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{
+                                    duration: 5,
+                                    delay: i / 10,
+                                  }}
+                                  className='text-center text-5xl'
+                                  key={i}
+                                >
+                                  {el}{" "}
+                                </motion.span>
+                              ))}
+                              </div>
+                              <div className='text-center'>
+                              {text1.map((el, i) => (
+                                <motion.span
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{
+                                    duration: 5,
+                                    delay: i / 10,
+                                  }}
+                                  className='text-xl text-center'                                 
+                                   key={i}
+                                >
+                                  {el}{" "}
+                                </motion.span>
+                              ))}
+                              </div>
+                              <div className='text-center'>
+                                
+                              {text2.map((el, i) => (
+                                <motion.span
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{
+                                    duration: 5,
+                                    delay: i / 10,
+                                  }}
+                                  className='text-xl text-center'                                  
+                                  key={i}
+                                >
+                                  {el}{" "}
+                                </motion.span>
+                              ))}
+                              </div>
+                            </div>
+             </div>
+          <motion.div 
+           className='h-full  sm:px-[100px] sm:py-10 w-auto flex justify-center items-center bg-[#314026]'>
+              <motion.img whileHover={{ scale: 1.2, rotateY: -10, x: -30 }} // Moves left on hover
+              whileTap={{ scale: 0.8 }}
+              
+              
+    src="my.jpg" className='rounded-3xl h-[80%] w-[80%]' alt="" />
+          </motion.div>
         </div>
       </div>
     </section>

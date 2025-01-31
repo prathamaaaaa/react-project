@@ -18,7 +18,7 @@ function Header() {
                         </div>
                         <div className='hidden md:block'>
                             <nav className="space-x-6 mr-4">
-                                <NavLink to='/'  className="hover:text-green-500  text-lg font-semibold">Home</NavLink>
+                                <NavLink to='/' onClick={() => window.scrollTo(0, 0)}  className="hover:text-green-500  text-lg font-semibold">Home</NavLink>
                                 <NavLink to='About'  className="hover:text-green-500  text-lg font-semibold">About</NavLink>
                                 <NavLink to='Service'  className="hover:text-green-500  text-lg font-semibold">Service</NavLink>
                                 <NavLink to='Product'  className="hover:text-green-500  text-lg font-semibold">Product</NavLink>

@@ -11,6 +11,7 @@ import { motion, useScroll } from 'framer-motion';
 import Allpage from './Allpage';
 import ServicePage from './pages/ServicePage';
 import ProductPage from './pages/ProductPage';
+import ProductPage1 from './pages/ProductPage1';
 
 function Design() {
     const { scrollYProgress } = useScroll();
@@ -36,7 +37,7 @@ function Design() {
                         <Route index element={<Allpage />} />
                         <Route path="about" element={<AboutPage />} />
                         <Route path="service" element={<ServicePage />} />
-                        <Route path="product" element={<ProductPage />} />
+                        <Route path="product" element={<ProductPage1 />} />
                         <Route path="contact" element={<Contact />} />
                     </Route>
                 </Routes>
