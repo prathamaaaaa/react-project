@@ -22,7 +22,9 @@ function ProductPage1() {
 
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-
+  useEffect(()=>{
+    window?.scrollTo({top:0})
+  },[])
   useEffect(() => {
     if (selectedProduct) {
       document.body.classList.add("overflow-hidden");
@@ -53,7 +55,7 @@ function ProductPage1() {
       </div>
 
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-gray-800 bg-opacity-50">
           <div className="bg-white flex-col md:flex-row p-6 rounded-lg shadow-lg md:max-h-full md:max-w-full flex">
             <div className="sm:w-[830px]  w-full bg-blue-100 p-4">
               <div>

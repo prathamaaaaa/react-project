@@ -1,10 +1,13 @@
 import { section } from 'framer-motion/client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Lottie from 'react-lottie';
 import animationData from "../../lotties/Animation - 1737635556614.json";
 import { motion } from 'framer-motion';
 
 function ServicePage() {
+    useEffect(()=>{
+      window?.scrollTo({top:0})
+    },[])
   const defaultOptions = {
     
     animationData: animationData,
@@ -57,7 +60,7 @@ const animationVariantsr = {
                         height={300}
                         width={300}
                     /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" className='m-10' viewBox="0 0 24 24" fill="none" stroke="#203003" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
 
               </div>
               <div className=' pb-10 flex justify-center items-center '>
@@ -97,7 +100,7 @@ const animationVariantsr = {
                         height={300}
                         width={300}
                     /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" className='m-10' viewBox="0 0 24 24" fill="none" stroke="#203003" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
 
               </div>
             </div>
@@ -116,7 +119,7 @@ const animationVariantsr = {
                         height={300}
                         width={300}
                     /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" className='m-10' viewBox="0 0 24 24" fill="none" stroke="#203003" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
 
               </div>
               <div className=' pb-10 flex justify-center items-center '>
@@ -155,7 +158,7 @@ const animationVariantsr = {
                         height={300}
                         width={300}
                     /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" className='m-10' viewBox="0 0 24 24" fill="none" stroke="#203003" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
 
               </div>
             </div>
@@ -172,7 +175,7 @@ const animationVariantsr = {
                         height={300}
                         width={300}
                     /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" className='m-10' viewBox="0 0 24 24" fill="none" stroke="#203003" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
 
               </div>
               <div className=' pb-10 flex justify-center items-center '>
@@ -210,7 +213,7 @@ const animationVariantsr = {
                         height={300}
                         width={300}
                     /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" className='m-10' viewBox="0 0 24 24" fill="none" stroke="#203003" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
 
               </div>
             </div>

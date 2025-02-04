@@ -10,6 +10,9 @@ const products = [
 ];
 
 function ProductPage() {
+    useEffect(()=>{
+      window?.scrollTo({top:0})
+    },[])
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (

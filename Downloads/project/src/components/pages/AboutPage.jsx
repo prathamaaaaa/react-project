@@ -6,6 +6,10 @@ function AboutPage() {
   const rounded = useTransform(() => Math.round(count.get()))
   const [displayCount, setDisplayCount] = React.useState(0);
 
+  useEffect(()=>{
+    window?.scrollTo({top:0})
+  },[])
+
   useEffect(() => {
     const unsubscribe = rounded.on("change", (latest) => {
       setDisplayCount(latest);
