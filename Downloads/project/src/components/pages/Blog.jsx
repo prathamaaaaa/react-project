@@ -4,15 +4,15 @@ import { NavLink } from 'react-router-dom';
 function Blog() {
   return (
     <>
-      <section>
-        <div className="flex justify-center overflow-x-auto items-center flex-col">
+      <section className=''>
+        <div className="flex justify-center overflow-x-auto  items-center flex-col">
           {/* Title */}
           <div>
-            <h1 className="sm:text-8xl text-5xl mt-10">Outcrowd Blog</h1>
+            <h1 className="sm:text-8xl text-5xl mt-10"><span className=''>Forth</span><span className='text-red-500'>Tech</span> Blog</h1>
           </div>
 
-          <div>
-            <div className="space-x-16 m-16">
+          <div className=''>
+            <div className="space-x-16 m-16 ">
               <NavLink
                 to="All"
                 className={({ isActive }) =>

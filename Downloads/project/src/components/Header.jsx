@@ -61,6 +61,8 @@ function Header() {
                                 <NavLink to='Service'  className="hover:text-green-500  text-lg font-semibold">Service</NavLink>
                                 <NavLink to='Product'  className="hover:text-green-500  text-lg font-semibold">Product</NavLink>
                                 <NavLink to='Contact'  className="hover:text-green-500  text-lg font-semibold">Contact Us</NavLink>
+                                <NavLink to='Blog'  className="hover:text-green-500  text-lg font-semibold">Blog</NavLink>
+
                              </motion.div>
                     </motion.div>
 
