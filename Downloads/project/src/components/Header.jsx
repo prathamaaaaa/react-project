@@ -23,7 +23,10 @@ function Header() {
                                 <NavLink to='Service'  className="hover:text-green-500  text-lg font-semibold">Service</NavLink>
                                 <NavLink to='Product'  className="hover:text-green-500  text-lg font-semibold">Product</NavLink>
                                 <NavLink to='Contact'  className="hover:text-green-500  text-lg font-semibold">Contact Us</NavLink>
+                                <NavLink to='Blog'  className="hover:text-green-500  text-lg font-semibold">Blog</NavLink>
+
                             </nav>
+
                         </div>
                         <div className='md:hidden'>
                         <motion.button onClick={toggleMenu} whileTap={{ scale: 1.2 }} className="text-white focus:outline-none">

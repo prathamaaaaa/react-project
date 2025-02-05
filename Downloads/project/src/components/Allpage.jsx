@@ -5,6 +5,7 @@ import About from './About'
 import Service from './Service'
 import Product from './Product'
 import Contact from './Contact'
+import Blog from './pages/Blog'
 
 function Allpage() {
   return (
@@ -15,6 +16,7 @@ function Allpage() {
             <Service/>
             <Product/>
             <Contact/>
+            <Blog/>
         </div>
     </>
   )

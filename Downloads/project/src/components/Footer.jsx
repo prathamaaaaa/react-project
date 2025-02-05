@@ -6,14 +6,14 @@ function Footer() {
       <section className=" overflow-x-hidden  text-white">
         <div className="grid grid-cols-1 sm:grid-cols-2 bg-gray-950 sm:border-gray-400 sm:border-2 rounded-2xl w-full  pt-10 overflow-x-hidden sm:pt-[100px]  sm:pl-16  gap-5 sm:gap-x-[200px]">
           <div className="w-[100%] sm:w-[90%] ">
-            <h1 className="text-4xl sm:text-7xl lg:text-9xl">Innovate with us</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl">Innovate with us</h1>
             <p className="mt-4 text-2xl">
               Our creative solutions have helped lorm10
               clients raise $100+ mln and expand their reach.
             </p>
-            <div className="mt-[100px] grid grid-cols-1 sm:grid-cols-2 gap-4 self-center">
+            <div className="mt-[100px] grid grid-cols-1 md:grid-cols-2 gap-4 self-center">
               
-            <button className="bg-white text-black px-6 sm:py-10 sm:text-3xl  py-6 rounded-2xl text-2xl hover:bg-gray-300">
+            <button className="bg-white text-black px-6 sm:py-10 sm:text-2xl md:text-3xl  py-6 rounded-2xl text-2xl hover:bg-gray-300">
                 Write us
               </button>
               <button className="bg-white text-black px-6  py-6 rounded-2xl sm:py-10 sm:text-3xl text-2xl hover:bg-gray-300">
@@ -36,7 +36,7 @@ function Footer() {
 
       <section className='overflow-x-hidden bg-black'>
         <div className='sm:py-16 '>
-          <div className='  sm:flex text-gray-400  sm:justify-between '>
+          <div className='  md:flex text-gray-400  md:justify-between '>
             <div className='grid p-4   grid-cols-2 gap-y-10 sm:gap-x-[50px] sm:grid-cols-3'>
               <div className='sm:text-xl  text-lg space-y-2 sm:space-y-4'>
                 <h1 className='font-bold text-white pb-2'>Cases</h1>

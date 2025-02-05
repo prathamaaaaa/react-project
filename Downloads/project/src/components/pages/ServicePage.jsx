@@ -8,13 +8,13 @@ function ServicePage() {
     useEffect(()=>{
       window?.scrollTo({top:0})
     },[])
-  const defaultOptions = {
+//   const defaultOptions = {
     
-    animationData: animationData,
-    rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-    }
-};
+//     animationData: animationData,
+//     rendererSettings: {
+//         preserveAspectRatio: "xMidYMid slice"
+//     }
+// };
 const animationVariants = {
   hidden: { opacity: 0, x: -500 },
   visible: { opacity: 1, x: 0, transition: { duration: 1 } } 
