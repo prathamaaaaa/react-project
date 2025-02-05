@@ -1,39 +1,49 @@
-import React from 'react'
-import AnimatedTextWord from './AnimatedTextWord'
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-function Product() {
-  
+function About() {
+  const { ref, inView, entry } = useInView({ triggerOnce: false, threshold: 0.2 });
+
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 3, delay: i * 0.1 }, // Adjust delay for smooth stagger
+    }),
+    reverse: { opacity: 0, y: 20 }, // Reverse animation
+  };
+
+  const text =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ipsum dolor sit amet consectetur adipisicing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+
+  const words = text.split(" "); // Split text into individual words
+
   return (
-    <>
-        {/* Product Section */}
-        <section id='Product' className='h-full space-y-10 bg-[#92ba92] flex justify-center items-center flex-col'>
-                    <h1 className="text-4xl font-semibold text-center text-gray-800">Our Products</h1>
-
-                    {/* <section className='h-full w-full'>
-                      <AnimatedTextWord text={"this is animated text to see!"} />
-                    </section> */}
-
-                    <section className='flex justify-center items-center space-y-10'>
-                      <div className=' space-y-10  w-full'>
-                        <div className='w-[50%] bg-black'>
-                        <p className='text-2xl text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione delectus voluptatibus blanditiis molestiae? Adipisci cum dignissimos ex ducimus nostrum maxime, tempora nemo error iure quibusdam fuga voluptatem perspiciatis vitae ut molestiae repellat explicabo voluptas tenetur facere debitis corrupti illum voluptatibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quasi ipsum nihil at excepturi eos eligendi odio optio molestiae expedita!</p>
-
-                        </div>
-                        <div className='grid gap-10 gap-x-10 grid-cols-2'>
-                          <div className='h-[500px] w-[400px] bg-blue-400'>one</div>
-                          <div className='h-[500px] mt-10 w-[400px] bg-blue-100'>one</div>
-                          <div className='h-[500px] w-[400px] bg-blue-400'>one</div>
-                          <div className='h-[500px] mt-10 w-[400px] bg-blue-100'>one</div>
-
-                        </div>
-                      </div>
-                      
-
-                    </section>
-                </section>
-
-    </>
-  )
+    <section
+      id="About"
+      ref={ref}
+      className="h-[700px] w-full flex items-center bg-[#d6eadf] justify-center"
+    >
+      <div className="text-center w-3/4 p-6 border border-[#11150d] rounded-lg bg-white">
+        <div className="flex flex-wrap justify-center">
+          {words.map((word, index) => (
+            <motion.span
+              key={index}
+              variants={variants}
+              initial="hidden"
+              animate={inView ? "visible" : "reverse"} 
+              custom={index}
+              className="text-2xl sm:text-4xl font-bold text-[#11150d] mx-1 my-1"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Product
+export default About;
