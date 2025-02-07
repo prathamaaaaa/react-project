@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-function About() {
-  const { ref, inView } = useInView();
+function Product() {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.5,
+  });
   const [scrollDirection, setScrollDirection] = useState(null);
-  const refe = useRef(null);
+
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -16,7 +19,7 @@ function About() {
       } else if (currentScrollY < lastScrollY) {
         setScrollDirection("up");
       }
-      // lastScrollY = currentScrollY;    
+      lastScrollY = currentScrollY; // Update after comparison
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,49 +29,38 @@ function About() {
     };
   }, []);
 
-  const variants = {
-    hidden: { opacity: 0, y: 20 },
+  const fadeVariants = {
+    hidden: { opacity: 0 },
     visible: (i) => ({
       opacity: 1,
-      y: 0,
-      transition: { duration: 3, delay: i * 0.1 },
+      transition: { duration: 1, delay: i * 0.1 },
     }),
-    reverse: { opacity: 0, y: 20, transition: { duration: 5 } },
+    reverse: { opacity: 0, transition: { duration: 0.5 } },
   };
 
   const boxVariants = {
     hiddenLeft: {
       opacity: 0,
-      x: -500,
-      y: 100,
-      rotate: -20,
+      x: -100,
     },
     hiddenRight: {
       opacity: 0,
-      x: 500,
-      y: 100,
-      rotate: 20,
+      x: 100,
     },
     visible: (i) => ({
       opacity: 1,
       x: 0,
-      y: 0,
-      rotate: 0,
-      transition: { duration: 2, delay: i * 0.3 },
+      transition: { duration: 1, delay: i * 0.2 },
     }),
     reverseLeft: {
       opacity: 0,
-      x: -500,
-      y: 100,
-      rotate: -20,
-      transition: { duration: 5 },
+      x: -100,
+      transition: { duration: 0.5 },
     },
     reverseRight: {
       opacity: 0,
-      x: 500,
-      y: 100,
-      rotate: 20,
-      transition: { duration: 5 },
+      x: 100,
+      transition: { duration: 0.5 },
     },
   };
 
@@ -80,20 +72,24 @@ function About() {
     <section
       id="About"
       ref={ref}
-      className="h-full w-full flex items-center flex-col bg-[#d6eadf] justify-center"
+      className="h-[1100px] overflow-x-hidden w-full flex items-center flex-col bg-[#d6eadf] justify-center"
     >
+      {/* Fade-in Text */}
       <div className="text-center w-3/4 p-6 border border-[#11150d] rounded-lg bg-white">
         <div className="flex flex-wrap justify-center">
           {words.map((word, index) => (
             <motion.span
+            
               key={index}
-              variants={variants}
+              variants={fadeVariants}
               initial="hidden"
               animate={
                 scrollDirection === "down"
                   ? inView
                     ? "visible"
                     : "reverse"
+                  : inView
+                  ? "visible"
                   : "reverse"
               }
               custom={index}
@@ -105,9 +101,9 @@ function About() {
         </div>
       </div>
 
+      {/* Fade-in and Fade-out Boxes */}
       <div className="mt-12">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-          {/* Box 1 - Curved from Left */}
           <motion.div
             variants={boxVariants}
             initial="hiddenLeft"
@@ -116,6 +112,8 @@ function About() {
                 ? inView
                   ? "visible"
                   : "reverseLeft"
+                : inView
+                ? "visible"
                 : "reverseLeft"
             }
             custom={0}
@@ -124,7 +122,6 @@ function About() {
             One
           </motion.div>
 
-          {/* Box 2 - Curved from Right */}
           <motion.div
             variants={boxVariants}
             initial="hiddenRight"
@@ -133,6 +130,8 @@ function About() {
                 ? inView
                   ? "visible"
                   : "reverseRight"
+                : inView
+                ? "visible"
                 : "reverseRight"
             }
             custom={1}
@@ -141,7 +140,6 @@ function About() {
             Two
           </motion.div>
 
-          {/* Box 3 - Curved from Left */}
           <motion.div
             variants={boxVariants}
             initial="hiddenLeft"
@@ -150,6 +148,8 @@ function About() {
                 ? inView
                   ? "visible"
                   : "reverseLeft"
+                : inView
+                ? "visible"
                 : "reverseLeft"
             }
             custom={2}
@@ -158,8 +158,8 @@ function About() {
             Three
           </motion.div>
 
-          {/* Box 4 - Curved from Right */}
           <motion.div
+          
             variants={boxVariants}
             initial="hiddenRight"
             animate={
@@ -167,6 +167,8 @@ function About() {
                 ? inView
                   ? "visible"
                   : "reverseRight"
+                : inView
+                ? "visible"
                 : "reverseRight"
             }
             custom={3}
@@ -180,4 +182,4 @@ function About() {
   );
 }
 
-export default About;
+export default Product;

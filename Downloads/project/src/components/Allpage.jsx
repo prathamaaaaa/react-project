@@ -6,6 +6,8 @@ import Service from './Service'
 import Product from './Product'
 import Contact from './Contact'
 import Blog from './pages/Blog'
+import Services from './Services'
+import Content from './pages/Content'
 
 function Allpage() {
   return (
@@ -15,8 +17,11 @@ function Allpage() {
             <About/>
             <Service/>
             <Product/>
-            <Contact/>
-            <Blog/>
+            <Content/>
+          <Services/>
+
+            {/* <Contact/> */}
+            {/* <Blog/> */}
         </div>
     </>
   )
