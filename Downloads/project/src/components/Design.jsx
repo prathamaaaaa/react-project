@@ -18,12 +18,14 @@ import SuccessStory from './pages/SuccessStory';
 import Designing from './pages/Designing';
 import LeaderShip from './pages/LeaderShip';
 import All from './pages/All';
+import ScrollToTop from './ScrollTop';
 
 function Design() {
     const { scrollYProgress } = useScroll();
 
     return (
         <Router>
+        <ScrollToTop/>
             <motion.div
                 style={{
                     scaleX: scrollYProgress,

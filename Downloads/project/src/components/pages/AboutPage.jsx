@@ -1,6 +1,7 @@
 import { animate,motion, useMotionValue, useTransform } from 'framer-motion'
 import React, { useEffect } from 'react'
 import './AboutPage.css'
+import HorizontalScrollSection from './HorizontalScrollSection'
 function AboutPage() {
   const count = useMotionValue(10000)
   const rounded = useTransform(() => Math.round(count.get()))
@@ -102,7 +103,7 @@ const text2 = "Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisic
 
   return (
     <>
-    <div className='bg-[#d6eadf]'>
+    <div className='bg-[#d6eadf]'>  
     <section>
       <div className='flex justify-center'>
         <div className='grid grid-cols-1 h-full   sm:grid-cols-2 '>
@@ -186,6 +187,8 @@ const text2 = "Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisic
       </div>
 
     </section>
+
+    <HorizontalScrollSection/>
 
     <section>
       <div className='m-10'>
