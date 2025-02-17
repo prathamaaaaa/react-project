@@ -1,228 +1,111 @@
-import { section } from 'framer-motion/client'
-import React, { useEffect } from 'react'
-import Lottie from 'react-lottie';
-import animationData from "../../lotties/Animation - 1737635556614.json";
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import Lottie from "lottie-react";
+import firstAnimation from "../../lotties/abc1.json";
+import thirdAnimation from "../../lotties/abc2.json";
+import DigitalDesignSection from "./DigitalDesignSection";
 
-function ServicePage() {
-    useEffect(()=>{
-      window?.scrollTo({top:0})
-    },[])
-//   const defaultOptions = {
-    
-//     animationData: animationData,
-//     rendererSettings: {
-//         preserveAspectRatio: "xMidYMid slice"
-//     }
-// };
-const animationVariants = {
-  hidden: { opacity: 0, x: -500 },
-  visible: { opacity: 1, x: 0, transition: { duration: 1 } } 
-};
-const animationVariantsr = {
-  hidden: { opacity: 0, x: 500 }, 
-  visible: { opacity: 1, x: 0, transition: { duration: 1 } } 
-};
+export default function ServicePage() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [])
+
+  const h2Opacity = useTransform(scrollYProgress, [0, 0.1, 0.2, 0.3, 0.4, 1], [0, 0.01, 0.2, 0.4, 1, 1]);
+  const pOpacity = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.5, 1], [0, 0, 0.2, 0.8, 1]);
+
   return (
+
     <>
 
-      <div className='overflow-x-hidden overflow-y-hidden bg-[#CBD2A4]'>
+    <section className="h-[75vh] flex flex-col items-center justify-center text-center  bg-black text-white ">
+    <motion.h1 
+      // initial={{ opacity: 0, y: -50 }} 
+      // animate={{ opacity: 1, y: 0 }} 
+      // exit={{ opacity: 0, y: -50 }}
+      // transition={{ duration: 1 }}
+      className="text-[22vw] leading-[0%] font-medium "
+    >
+      Services
+    </motion.h1>
 
-        <section>
-        <div className="flex m-[100px] justify-center items-center">
-          <h1 className="text-6xl font-bold">
-            {"Our Services".split("").map((char, index) => (
-              <span
-                key={index}
-                className="inline-block transition duration-300 hover:text-pink-500 hover:scale-200 cursor-[url('/cursor.png'),_pointer]"
-              >
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
-          </h1>
+  </section>
+
+    <section ref={ref} className="min-h-screen flex flex-col items-center justify-center text-center -mt-1 bg-black text-white px-4 sm:px-6 py-12">
+      <motion.h2 className="text-[14vw] sm:text-[12vw] md:text-[10vw] font-medium" style={{ opacity: h2Opacity }}>
+        Branding
+      </motion.h2>
+
+      <motion.p className="mt-4 text-base sm:text-lg md:text-xl text-gray-300 max-w-full sm:max-w-xl" style={{ opacity: pOpacity }}>
+        A powerful instrument to set the company's positioning and establish a visual language to follow across the whole path.
+      </motion.p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-12 w-full max-w-6xl">
+        {/* Left Column: Lottie Animations */}
+        <div className="flex flex-col items-center md:items-start gap-3 lg:gap-5 w-full">
+          {/* First Animation */}
+          <div className="w-full max-w-[350px] lg:max-w-[520px] p-2 h-auto bg-[#36343463] rounded-sm">
+            <Lottie animationData={firstAnimation} loop={true} />
+          </div>
+
+          <div className="flex justify-center md:justify-start items-center gap-2">
+            {/* Static SVG */}
+            <img
+              src="https://cdn.prod.website-files.com/667a7576e7e7ef3ba89b3f2a/66b600632a9416273fae8554_branding_2.svg"
+              alt="Branding Icon"
+              className="w-[55%] sm:w-60 lg:w-85 p-2 bg-[#36343463] rounded-lg"
+            />
+            {/* Third Animation */}
+            <div className="w-[30%] sm:w-30 lg:w-43 p-2 bg-[#36343463] rounded-sm">
+              <Lottie animationData={thirdAnimation} loop={true} />
+            </div>
+          </div>
         </div>
 
-
-        </section>
-        
-        <motion.section 
-          initial='hidden'
-          whileInView="visible"
-          variants={animationVariantsr}
-          sm:initial='hidden'
-          sm:whileInView="visible"
-          sm:variants={animationVariantsr}
-          className='border-y-4 border-l-4 h-auto my-8 sm:ml-[100px] bg-[#E9EED9] border-black-300 sm:rounded-tl-full sm:rounded-bl-full '>
-            <div className='grid grid-cols-1 sm:grid-cols-2 m-10 sm:m-0 sm:p-0 p-10 '>
-              <div className=' pb-10 flex justify-center m-10 items-center h-full w-full'>
-              {/* <Lottie
-                        options={defaultOptions}
-                        height={300}
-                        width={300}
-                    /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
-
-              </div>
-              <div className=' pb-10 flex justify-center items-center '>
-                  <div className='space-y-6 sm:pr-[150px]'>
-                    <h1 className='text-3xl text-center font-bold'>Strategy</h1>
-                    <p className='text-xl  text-center'>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, placeat. sit amet consectetur adipisicing elit. Animi atque fuga id blanditiis.
-
-                    </p>
-                  </div>
-
-              </div>
-            </div>
-        </ motion.section>
-
-        <motion.section 
-            initial='hidden'
-            whileInView="visible"
-            variants={animationVariants}
-          sm:initial='hidden'
-          sm:whileInView="visible"
-          sm:variants={animationVariants}
-            className='border-y-4 border-r-4 h-auto my-8 sm:mr-[100px]  bg-[#E9EED9] border-black-300 sm:rounded-tr-full sm:rounded-br-full '>
-            <div className='grid grid-cols-1 sm:grid-cols-2 m-10 sm:m-0 sm:p-0 p-10 '>
-              
-              <div className=' pb-10 flex justify-center items-center '>
-                  <div className='space-y-6 sm:pl-[150px]'>
-                    <h1 className='text-3xl text-center font-bold'>Strategy</h1>
-                    <p className='text-xl  text-center'>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, placeat. sit amet consectetur adipisicing elit. Animi atque fuga id blanditiis.
-
-                    </p>
-                  </div>
-
-              </div>
-              <div className=' pb-10 flex justify-center m-10 items-center h-full w-full'>
-              {/* <Lottie
-                        options={defaultOptions}
-                        height={300}
-                        width={300}
-                    /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
-
-              </div>
-            </div>
-        </motion.section>
-
-
-        <motion.section 
-          sm:initial='hidden'
-          sm:whileInView="visible"
-          sm:variants={animationVariantsr}
-          className='border-y-4 border-l-4 h-auto my-8 sm:ml-[100px]  bg-[#E9EED9] border-black-300 sm:rounded-tl-full sm:rounded-bl-full '>
-            <div className='grid grid-cols-1 sm:grid-cols-2 m-10 sm:m-0 sm:p-0 p-10 '>
-              <div className=' pb-10 flex justify-center m-10 items-center h-full w-full'>
-              {/* <Lottie
-                        options={defaultOptions}
-                        height={300}
-                        width={300}
-                    /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
-
-              </div>
-              <div className=' pb-10 flex justify-center items-center '>
-                  <div className='space-y-6 sm:pr-[150px]'>
-                    <h1 className='text-3xl text-center font-bold'>Strategy</h1>
-                    <p className='text-xl  text-center'>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, placeat. sit amet consectetur adipisicing elit. Animi atque fuga id blanditiis.
-
-                    </p>
-                  </div>
-
-              </div>
-            </div>
-        </ motion.section>
-
-
-        <motion.section 
-            
-          sm:initial='hidden'
-          sm:whileInView="visible"
-          sm:variants={animationVariants}
-            className='border-y-4 border-r-4 h-auto my-8 sm:mr-[100px]  bg-[#E9EED9] border-black-300 sm:rounded-tr-full sm:rounded-br-full '>
-            <div className='grid grid-cols-1 sm:grid-cols-2 m-10 sm:m-0 sm:p-0 p-10 '>
-              
-              <div className=' pb-10 flex justify-center items-center '>
-                  <div className='space-y-6 sm:pl-[150px]'>
-                    <h1 className='text-3xl text-center font-bold'>Strategy</h1>
-                    <p className='text-xl  text-center'>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, placeat. sit amet consectetur adipisicing elit. Animi atque fuga id blanditiis.
-
-                    </p>
-                  </div>
-
-              </div>
-              <div className=' pb-10 flex justify-center m-10 items-center h-full w-full'>
-              {/* <Lottie
-                        options={defaultOptions}
-                        height={300}
-                        width={300}
-                    /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
-
-              </div>
-            </div>
-        </motion.section>
-        <motion.section 
-          sm:initial='hidden'
-          sm:whileInView="visible"
-          sm:variants={animationVariantsr}
-          className='border-y-4 border-l-4 h-auto my-8 sm:ml-[100px]  bg-[#E9EED9] border-black-300 sm:rounded-tl-full sm:rounded-bl-full '>
-            <div className='grid grid-cols-1 sm:grid-cols-2 m-10 sm:m-0 sm:p-0 p-10 '>
-              <div className=' pb-10 flex justify-center m-10 items-center h-full w-full'>
-              {/* <Lottie
-                        options={defaultOptions}
-                        height={300}
-                        width={300}
-                    /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
-
-              </div>
-              <div className=' pb-10 flex justify-center items-center '>
-                  <div className='space-y-6 sm:pr-[150px]'>
-                    <h1 className='text-3xl text-center font-bold'>Strategy</h1>
-                    <p className='text-xl  text-center'>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, placeat. sit amet consectetur adipisicing elit. Animi atque fuga id blanditiis.
-
-                    </p>
-                  </div>
-
-              </div>
-            </div>
-        </ motion.section>
-
-        <motion.section 
-            
-          sm:initial='hidden'
-          sm:whileInView="visible"
-          sm:variants={animationVariants}
-            className='border-y-4 border-r-4 h-auto my-8 sm:mr-[100px]  bg-[#E9EED9] border-black-300 sm:rounded-tr-full sm:rounded-br-full '>
-            <div className='grid grid-cols-1 sm:grid-cols-2 m-10 sm:m-0 sm:p-0 p-10 '>
-              
-              <div className=' pb-10 flex justify-center items-center '>
-                  <div className='space-y-6 sm:pl-[150px]'>
-                    <h1 className='text-3xl text-center font-bold'>Strategy</h1>
-                    <p className='text-xl  text-center'>Lorem ipsum dolor Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, placeat. sit amet consectetur adipisicing elit. Animi atque fuga id blanditiis.
-
-                    </p>
-                  </div>
-
-              </div>
-              <div className=' pb-10 flex justify-center m-10 items-center h-full w-full'>
-              {/* <Lottie
-                        options={defaultOptions}
-                        height={300}
-                        width={300}
-                    /> */}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="#203003" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" className="lucide m-10 lucide-database-zap"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84"/><path d="M21 5V8"/><path d="M21 12L18 17H22L19 22"/><path d="M3 12A9 3 0 0 0 14.59 14.87"/></svg>
-
-              </div>
-            </div>
-        </motion.section>
-
-
+        {/* Right Column: Text Content */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-6 text-left w-full px-4 sm:px-0">
+          <div>
+            <h3 className="text-2xl sm:text-xl lg:text-3xl font-semibold">Platforms</h3>
+            <ul className="text-[16px] sm:text-base lg:text-lg text-gray-300 list-disc leading-7 lg:leading-8 mt-2 pl-5 marker:text-red-500">
+              <li>UX Audit</li>
+              <li>Wireframes</li>
+              <li>User Flows</li>
+              <li>Prototyping</li>
+              <li>Design System</li>
+              <li>Wireframes</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-2xl sm:text-xl lg:text-3xl font-semibold">Websites</h3>
+            <ul className="text-[16px] sm:text-base lg:text-lg text-gray-300 leading-7 lg:leading-8 mt-2 list-disc pl-5 marker:text-red-500">
+              <li>Interactive </li>
+              <li>Design System</li>
+              <li>Wireframes</li>
+              <li>Art Direction</li>
+              <li>Responsive</li>
+              <li>UI Kit</li>
+            </ul>
+          </div>
+          <div className="flex justify-center sm:justify-start col-span-2 ">
+            <button className="bg-red-500 hover:bg-red-600 text-white h-[55px] sm:h-[10vh] w-full sm:w-[110px] md:w-[120px] lg:w-[175px] rounded-lg font-semibold">
+              View Details
+            </button>
+          </div>
+        </div>
       </div>
+    </section>
+    <DigitalDesignSection/>
+    <DigitalDesignSection/>
+    <DigitalDesignSection/>
     </>
-  )
+  );
 }
-
-export default ServicePage

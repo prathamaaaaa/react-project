@@ -3,7 +3,7 @@
 
 /* Hide horizontal scrollbar */
 body {
-  overflow-x: hidden; 
+  overflow-x: hidden !important; 
   width: min-content;
 }
 
@@ -21,3 +21,9 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
   border: 3px solid black;
 }
+
+/* body, html {
+  margin: 0;
+  padding: 0;
+  background-color: black 
+} */
